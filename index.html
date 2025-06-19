@@ -7,6 +7,9 @@
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- AOS (Animate On Scroll) Library for animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <!-- Google Fonts: Montserrat for a professional look -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,6 +42,29 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Custom Keyframes for initial landing animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in-up {
+            opacity: 0; /* Start hidden */
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-500 { animation-delay: 0.5s; }
+        .delay-700 { animation-delay: 0.7s; }
+
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -52,24 +78,24 @@
         
         <!-- Content -->
         <div class="relative z-10 p-6">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 ">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 fade-in-up delay-300">
                 Is Your Paycheck Deciding Your Future?
             </h1>
-            <p class="text-xl md:text-2xl font-light mb-8">
+            <p class="text-xl md:text-2xl font-light mb-8 fade-in-up delay-500">
                 It's Time to Take Back Control.
             </p>
-            <a href="#invitation" class="inline-block bg-accent-gold text-deep-blue font-bold py-3 px-8 rounded-lg text-lg uppercase tracking-wider transform hover:scale-105 transition-transform duration-300 bg-accent-gold-hover">
+            <a href="#invitation" class="inline-block bg-accent-gold text-deep-blue font-bold py-3 px-8 rounded-lg text-lg uppercase tracking-wider transform hover:scale-105 transition-transform duration-300 fade-in-up delay-700">
                 Discover The Path
             </a>
         </div>
     </section>
 
     <!-- INVITATION SECTION -->
-    <section id="invitation" class="py-20 bg-white">
+    <section id="invitation" class="py-20 bg-white overflow-x-hidden">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <!-- Left Column: The Why -->
-                <div class="text-left">
+                <div class="text-left" data-aos="fade-right">
                     <h2 class="text-3xl font-bold text-deep-blue mb-4">A Personal Invitation to Change Your Life</h2>
                     <p class="mb-6">
                         You work hard, but does it feel like you're just treading water? Join us for a complimentary, no-obligation online information session where we pull back the curtain and show you how to build a legacy.
@@ -90,7 +116,7 @@
                     </ul>
                 </div>
                 <!-- Right Column: The Event Box -->
-                <div class="bg-gray-50 rounded-xl border-t-4 border-accent-gold text-center">
+                <div class="bg-gray-50 rounded-xl border-t-4 border-accent-gold text-center" data-aos="fade-left">
                     <!-- Poster Image -->
                     <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D">
                     
@@ -115,26 +141,25 @@
     <!-- EMBEDDED VIDEO SECTION -->
     <section id="story" class="py-20 bg-gray-200">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-deep-blue mb-8">See the Vision in Under 2 Minutes</h2>
+            <h2 class="text-3xl font-bold text-deep-blue mb-8" data-aos="fade-down">See the Vision in Under 2 Minutes</h2>
             <!-- Responsive Video Wrapper -->
-                <div class="p-6 flex flex-col items-center text-center">
-                    <div class="aspect-w-16 aspect-h-9 mb-4 rounded-lg w-full">
-                        <iframe class="rounded-lg" src="https://www.youtube.com/embed/placeholder1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
+            <div class="aspect-w-16 aspect-h-9 max-w-4xl items-center mx-auto rounded-lg" data-aos="zoom-in-up">
+                <!-- Replace the src with your actual video link -->
+                <iframe src="https://www.youtube.com/embed/gD-aQAYhQoU?si=1l_T1JcWc4Uj8R_J" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
     
     <!-- THE SYSTEM SECTION -->
-    <section id="system" class="py-20 bg-white">
+    <section id="system" class="py-20 bg-white overflow-x-hidden">
         <div class="container mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <!-- Left Column: Image -->
-                <div class="rounded-lg">
+                <div class="rounded-lg" data-aos="fade-right">
                     <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1932&auto=format&fit=crop" alt="Supportive team working together" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Team+Image';">
                 </div>
                 <!-- Right Column: Text -->
-                <div class="text-left">
+                <div class="text-left" data-aos="fade-left">
                     <h2 class="text-3xl font-bold text-deep-blue mb-4">You Won't Be Alone.<br>You'll Have a System.</h2>
                     <p class="mb-6">Your success is our success. That's why we have a simple, powerful, and duplicatable system that anyone can follow. We live by a single mantra that is the key to unlocking this business:</p>
                     <div class="p-6 bg-gray-50 border-l-4 border-accent-gold text-center">
@@ -149,10 +174,10 @@
     <!-- TESTIMONIALS SECTION -->
     <section id="testimonials" class="py-20 bg-deep-blue text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12">Real Stories, Real Results</h2>
+            <h2 class="text-3xl font-bold mb-12" data-aos="fade-in">Real Stories, Real Results</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Testimonial Card 1 -->
-                <div class="p-6 flex flex-col items-center text-center">
+                <div class="p-6 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="aspect-w-16 aspect-h-9 mb-4 rounded-lg w-full">
                         <iframe class="rounded-lg" src="https://www.youtube.com/embed/placeholder1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -160,7 +185,7 @@
                     <p class="font-bold text-accent-gold mt-auto">— Sarah M., Johannesburg</p>
                 </div>
                 <!-- Testimonial Card 2 -->
-                <div class="p-6 flex flex-col items-center text-center">
+                <div class="p-6 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="aspect-w-16 aspect-h-9 mb-4 rounded-lg w-full">
                         <iframe class="rounded-lg" src="https://www.youtube.com/embed/placeholder2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -168,7 +193,7 @@
                     <p class="font-bold text-accent-gold mt-auto">— Thabo K., Durban</p>
                 </div>
                 <!-- Testimonial Card 3 -->
-                <div class="p-6 flex flex-col items-center text-center">
+                <div class="p-6 flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
                      <div class="aspect-w-16 aspect-h-9 mb-4 rounded-lg w-full">
                         <iframe class="rounded-lg" src="https://www.youtube.com/embed/placeholder3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
@@ -181,7 +206,7 @@
     
     <!-- FINAL CTA SECTION -->
     <section id="contact" class="py-20 bg-white text-center">
-         <div class="container mx-auto px-6">
+         <div class="container mx-auto px-6" data-aos="zoom-in">
             <h2 class="text-3xl md:text-4xl font-bold text-deep-blue">Your Future is Not a Matter of Chance.</h2>
             <h2 class="text-3xl md:text-4xl font-bold text-deep-blue mb-4">It's a Matter of Choice.</h2>
             <p class="text-lg max-w-3xl mx-auto mb-8">You have nothing to lose and a lifetime of freedom to gain. Take the first step.</p>
@@ -200,13 +225,22 @@
             <p class="text-sm text-gray-400 mt-2">An independent team of Clientèle Life IFAs.</p>
         </div>
     </footer>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+          duration: 1000, // values from 0 to 3000, with step 50ms
+          once: false, // whether animation should happen only once - while scrolling down
+      });
+    </script>
 
     <!-- JavaScript to calculate the next presentation date -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Function to find the next occurrence of a specific weekday
             // 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
-            const presentationDay = 3; // Wednesday
+            const presentationDay = 6; // Saturday
 
             const today = new Date();
             const resultDate = new Date(today.getTime());
@@ -233,4 +267,3 @@
 
 </body>
 </html>
-
